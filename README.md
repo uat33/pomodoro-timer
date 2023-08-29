@@ -7,3 +7,4 @@ This is a pomodoro timer, can view the above link if you want to know what that 
 
 Fairly straightforward app made using tkinter. The playsound module is used to make an alarm of sorts to notify the user that the current session is over.
 
+Use by runnning main.py.
