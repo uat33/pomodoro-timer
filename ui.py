@@ -9,11 +9,11 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 1
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+WORK_MIN = 0.1
+SHORT_BREAK_MIN = 0.1
+LONG_BREAK_MIN = 0.2
 ALARM = "alarm.wav"
-CHECKMARK = "✓"
+TALLY = "/"
 
 class timer_UI:
     
@@ -26,14 +26,14 @@ class timer_UI:
         self.timer = None
         
         self.window = Tk() # create the window
-        tomato_img = PhotoImage(file="tomato.png") # create the image
+        # tomato_img = PhotoImage(file="tomato.png") # create the image
         self.window.title("Pomodoro Timer") # title our window
         self.window.config(padx=100, pady=50, bg=YELLOW) # format our window
         self.canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0) # create and format our canvas
-        self.canvas.create_image(100, 112, image=tomato_img) # add image to canvas
+        # self.canvas.create_image(100, 112, image=tomato_img) # add image to canvas
         self.canvas.grid(row=1, column=1) # add canvas to window
         # make the timer itself on the canvas
-        self.timer_text = self.canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+        self.timer_text = self.canvas.create_text(100, 130, text="00:00", fill="black", font=(FONT_NAME, 35, "bold"))
 
         # timer label
         self.timer_label = Label(text="Timer", fg=GREEN, font=(FONT_NAME, 35, "bold"), bg=YELLOW)
@@ -49,11 +49,11 @@ class timer_UI:
         self.reset_button = Button(text="Reset", command=self.reset_timer, highlightbackground=YELLOW)
         self.reset_button.grid(column=3, row=2) # add it to window
 
-        # checkmark
+        # tally
         # shows the total number of work sessions completed
         # create a label 
-        self.checkmark = Label(fg=GREEN, bg=YELLOW, font=(FONT_NAME, 30, "bold"))
-        self.checkmark.grid(row=3, column=1) # add it 
+        self.tally = Label(fg=GREEN, bg=YELLOW, font=(FONT_NAME, 30, "bold"))
+        self.tally.grid(row=3, column=1) # add it 
         # it starts off as empty
 
         self.window.mainloop() # the mainloop
@@ -64,10 +64,10 @@ class timer_UI:
         # resets the timer so we don't have to exit to restart
         self.window.after_cancel(self.timer) 
 
-        # reset text, and label and checkmarks
+        # reset text, and label and tallies
         self.canvas.itemconfig(self.timer_text, text='00:00')
         self.timer_label.config(text="Timer")
-        self.checkmark.config(text="")
+        self.tally.config(text="")
 
         # make the start button normal so it can be restarted
         self.start_button.config(state=NORMAL)
@@ -105,6 +105,6 @@ class timer_UI:
             # when that's done, start the itmer again
             self.start_timer()
             if self.reps % 2 == 0: # if it was a work session
-                # add a checkmark
-                self.checkmark.config(text=self.checkmark['text'] + CHECKMARK)
+                # add a tally
+                self.tally.config(text=self.tally['text'] + TALLY)
 
