@@ -5,6 +5,10 @@ https://www.techtarget.com/whatis/definition/pomodoro-technique#:~:text=The%20Po
 
 This is a pomodoro timer, can view the above link if you want to know what that is.
 
-Fairly straightforward app made using tkinter. The playsound module is used to make an alarm of sorts to notify the user that the current session is over.
+Essentially a productivity tool used to balance time spent working with breaks.
+
+Fairly straightforward app made using tkinter. 
+
+The playsound module is used to make an alarm of sorts to notify the user that the current session is over.
 
 Use by runnning main.py.

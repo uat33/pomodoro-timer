@@ -26,11 +26,11 @@ class timer_UI:
         self.timer = None
         
         self.window = Tk() # create the window
-        # tomato_img = PhotoImage(file="tomato.png") # create the image
+        tomato_img = PhotoImage(file="tomato.png") # create the image
         self.window.title("Pomodoro Timer") # title our window
         self.window.config(padx=100, pady=50, bg=YELLOW) # format our window
         self.canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0) # create and format our canvas
-        # self.canvas.create_image(100, 112, image=tomato_img) # add image to canvas
+        self.canvas.create_image(100, 112, image=tomato_img) # add image to canvas
         self.canvas.grid(row=1, column=1) # add canvas to window
         # make the timer itself on the canvas
         self.timer_text = self.canvas.create_text(100, 130, text="00:00", fill="black", font=(FONT_NAME, 35, "bold"))
@@ -101,8 +101,10 @@ class timer_UI:
             self.timer = self.window.after(1000, self.countdown, count - 1)
         else: # when timer hits 0
             # play an alarm
-            playsound(ALARM)
-            # when that's done, start the itmer again
+            playsound(ALARM, block=False)
+            # setting the block parameter to false makes it a non-blocking operation essentially
+            # so execution (in this case starting the timer for the next round) will happen while the alarm is going off
+            
             self.start_timer()
             if self.reps % 2 == 0: # if it was a work session
                 # add a tally
