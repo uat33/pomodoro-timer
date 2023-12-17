@@ -1,6 +1,8 @@
 from tkinter import *
 import math
-from playsound import playsound
+
+# uncomment next line to import module to play sounds which can be used for an alarm
+# from playsound import playsound
 
 
 # constants
@@ -100,8 +102,11 @@ class timer_UI:
             # after -- executes command after time delay
             self.timer = self.window.after(1000, self.countdown, count - 1)
         else: # when timer hits 0
-            # play an alarm
-            playsound(ALARM, block=False)
+            # uncomment the next line to play an alarm when session ends
+
+            # playsound(ALARM, block=False)
+
+
             # setting the block parameter to false makes it a non-blocking operation essentially
             # so execution (in this case starting the timer for the next round) will happen while the alarm is going off
             

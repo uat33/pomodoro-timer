@@ -9,6 +9,4 @@ Essentially a productivity tool used to balance time spent working with breaks.
 
 Fairly straightforward app made using tkinter. 
 
-The playsound module is used to make an alarm of sorts to notify the user that the current session is over.
-
 Use by runnning main.py.
