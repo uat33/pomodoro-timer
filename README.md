@@ -1,4 +1,4 @@
-# pomodoro-timer
+# pomodoro timer
 
 https://www.techtarget.com/whatis/definition/pomodoro-technique#:~:text=The%20Pomodoro%20Technique%20is%20a,tomato%20(plural%3A%20pomodori).
 
